@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://citadel-app.onrender.com"],
+    origin: ["http://localhost:5173", "https://the-citadel-app.onrender.com"],
     credentials: true,
   })
 );
