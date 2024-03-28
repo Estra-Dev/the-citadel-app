@@ -3,7 +3,7 @@ import { errorHandler } from "./error.js";
 
 export const verifyToken = (req, res, next) => {
   // const token = req.cookies.access_token;
-  const token = req.cookies.cookies_accepted;
+  const token = req.cookies.MicrosoftApplicationsTelemetryDeviceId;
   console.log(token);
 
   if (!token) {
