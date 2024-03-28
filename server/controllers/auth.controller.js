@@ -46,7 +46,12 @@ export const login = async (req, res, next) => {
           { userID: userExist._id, isAdmin: userExist.isAdmin },
           process.env.SECRETE
         );
-        res.status(201).cookie("access_token", token).json({ token, rest });
+        res
+          .status(201)
+          .cookie("access_token", token, {
+            httpOnly: true,
+          })
+          .json({ token, rest });
       }
     }
   } catch (error) {
@@ -67,7 +72,12 @@ export const google = async (req, res, next) => {
         { userID: userExist._id, isAdmin: userExist.isAdmin },
         process.env.SECRETE
       );
-      res.status(201).cookie("access_token", token).json({ token, rest });
+      res
+        .status(201)
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .json({ token, rest });
     } else {
       // generate a paaword for the user
       const generatedPassword =
@@ -88,7 +98,12 @@ export const google = async (req, res, next) => {
         process.env.SECRETE
       );
       const { password: pass, ...rest } = newUser._doc;
-      res.status(201).cookie("access_token", token).json({ token, rest });
+      res
+        .status(201)
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .json({ token, rest });
 
       console.log(newUser);
     }

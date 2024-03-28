@@ -15,12 +15,12 @@ const PORT = 3000 || process.env.PORT;
 
 const __dirname = path.resolve();
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://the-citadel-app.onrender.com"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:5173", "https://the-citadel-app.onrender.com"],
+//     credentials: true,
+//   })
+// );
 app.use(express.json());
 app.use(cookieParser());
 app.use("/auth", authRouter);
