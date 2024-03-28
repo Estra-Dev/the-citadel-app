@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node ./server/index.js",
-    "dev": "nodemon ./server/index.js"
+    "dev": "nodemon ./server/index.js",
+    "build": "npm install && npm install --prefix citadel-clientside && npm run build --prefix citadel-clientside"
   },
   "keywords": [],
   "author": "",

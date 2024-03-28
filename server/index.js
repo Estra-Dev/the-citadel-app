@@ -28,14 +28,16 @@ app.use("/user", userRouter);
 app.use("/post", postRouter);
 app.use("/comment", commentRouter);
 
-app.use(express.static(path.join(__dirname, "/client/dist")));
+app.use(express.static(path.join(__dirname, "/citadel-clientside/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "citadel-clientside", "dist", "index.html")
+  );
+});
 
 app.get("/", (req, res) => {
   res.send("Welcome to the citadel app");
 });
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-// });
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
